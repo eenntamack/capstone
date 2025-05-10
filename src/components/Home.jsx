@@ -17,12 +17,21 @@ export default function Home() {
   return (
     <>
       <div>Content is stored here</div>
-      {/* {Array.isArray(users) && users.map((u, index) => (
+      {Array.isArray(users) && users.map((u, index) => (
         <div key={index}>
           <h1>{u.username}</h1>
           <p>{u.password}</p>
+          <p>{u.logHistory.toLocaleString('en-US', {
+    month: 'long',
+    day: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  })}</p>
         </div>
-      ))} */}
+      ))}
       <Link to="project">Project</Link>
       <Outlet />
     </>

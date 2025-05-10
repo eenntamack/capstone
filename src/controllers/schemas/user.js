@@ -7,7 +7,9 @@ const router = express.Router()
 export const user =  new mongoose.Schema({
     username : {type: String, required: true},
     password: {type: String, required: true},
-    logHistory : {type: Date, default:Date.now()}
+    logHistory : {type: Date, default: Date.now()},
+    mode: {type: String, default:"light"}
+     
 })
 
 router.route("/")

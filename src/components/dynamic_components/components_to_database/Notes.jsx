@@ -1,8 +1,9 @@
-import { booksSchema , log } from "../../../controllers/schemas/write"
-
 
 export default function Notes(props){
     return(
-        <div>This div</div>
+    <form method="POST">
+        <textarea style={{width:'300px', height:'500px',justifyContent:'start'}}></textarea>
+        <button type="submit"></button>
+    </form>
     )
 }

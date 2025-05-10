@@ -1,6 +1,6 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import { booksSchema, log } from './schemas/write.js'
+import { projectSchema} from './schemas/write.js'
 import { user } from './schemas/user.js'
 
 const router = express.Router()
