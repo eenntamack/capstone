@@ -1,0 +1,6 @@
+libraries utilized: 
+  - multer
+  - gsap
+  - p5
+  - @gsap/react
+  - bcrypt (A hashing library used for hashing passwords for better security)
