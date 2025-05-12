@@ -7,6 +7,8 @@ import Survey from './components/Survey';
 import Home from './components/Home';
 import Project from './components/dynamic_components/Project'
 import Seed from './components/Seed';
+import Login from './components/Login';
+import Register from './components/Register';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -17,6 +19,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="home" element={<Home/>}>
         <Route path="project" element={<Project/>}/>
       </Route>
+      <Route path="login" element={<Login/>}></Route>
+      <Route path="register" element={<Register/>}></Route>
       <Route path="/seed" element={<Seed/>}></Route>
     </Route>
     
