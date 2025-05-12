@@ -59,8 +59,8 @@ export default function Questions(){
         </div>
         {renderLink && (
         <div ref={homeLink} style={{ marginTop: "20px" }}>
-          <Link to="/home" style={{ fontWeight: "bold", color: "blue" }}>
-            Go to Home
+          <Link to="/login" style={{ fontWeight: "bold", color: "blue" }}>
+            Login
           </Link>
         </div>
       )}

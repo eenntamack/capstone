@@ -18,7 +18,6 @@ const chapter = new mongoose.Schema({
 })
 
 
-
 const chapters = new mongoose.Schema({
     name: {type: String, required: true},
     text: [chapter],
@@ -45,7 +44,6 @@ const log = new mongoose.Schema({
 const booksSchema = new mongoose.Schema({
     name:  { type: String, required: true },
     chapters: [chapters],
-    favorite: {type: Boolean, default: false},
     hasImage: {type:Boolean,default:false},
     date: [log],
     due: {type:Date,default: Date.now()},

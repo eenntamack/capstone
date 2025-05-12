@@ -26,7 +26,8 @@ router.post("/login", async (req, res) => {
 
         res.json({
             userExist: true,
-            passwordCorrect: match
+            passwordCorrect: match,
+            userKey: user._id
         });
     } catch (err) {
         console.error(err);
@@ -39,7 +40,7 @@ router.post("/register", async (req, res) => {
     try {
         const existingUser = await User.findOne({ username });
         if (existingUser) {
-            return res.status(400).json({ message: "Username already exists" });
+            return res.json({ message: "Username already exists" });
         }
 
         const hashedPassword = await bcrypt.hash(password, saltRounds);
