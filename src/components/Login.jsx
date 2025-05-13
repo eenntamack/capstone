@@ -7,7 +7,6 @@ export default function Login() {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [userkey, setUserkey] = useState('');
     const [canLogin, setCanLogin] = useState(true);
 
     const toggleForm = () => setCanLogin(prev => !prev);
@@ -29,11 +28,11 @@ export default function Login() {
                 alert("Password incorrect");
             } else {
                 alert("Processing login...");
-                setUserkey(userKey);
-                navigate("/home",{state:{userKey}});
+                localStorage.setItem("userKey", userKey);
+                navigate("/home",{state:{userKey:userKey}});
             }
         } catch (err) {
-            console.error("Login error:", err);
+            console.error("Login error:", err); 
             alert("Something went wrong. Please try again.");
         }
     };
@@ -79,7 +78,11 @@ export default function Login() {
                 </>
             ) : (
                 <>
-                    <Register />
+            <Register onLogged={({ username, password }) => {
+                setUsername(username);
+                setPassword(password);
+                setCanLogin(true); // Return to login form after successful registration
+            }} />
                     <button onClick={toggleForm}>Back to Login</button>
                 </>
             )}

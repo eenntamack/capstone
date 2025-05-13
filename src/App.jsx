@@ -41,9 +41,9 @@ function App() {
     <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'blue', overflow: 'hidden', justifyContent:"center"}}>
       <header style={{height:'50px', display:'flex', justifyContent:'center', alignItems:'center', backgroundColor:'purple'}}>the header</header>
       <main style={{flex: '1', padding: '30px', backgroundColor:"green" ,display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
-      <p className='box' ref={reffered} onClick={clikFunc} style={{ padding: "30px" }}>
+      {/* <p className='box' ref={reffered} onClick={clikFunc} style={{ padding: "30px" }}>
         Hello Capstone
-      </p>
+      </p> */}
       <Seed/>
       <Outlet/>
       </main>

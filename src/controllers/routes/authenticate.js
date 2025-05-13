@@ -7,13 +7,13 @@ import bcrypt from 'bcrypt'
 const saltRounds = 10
 
 const router = express.Router()
-
+ 
 // Define User model
 const User = mongoose.models.user || mongoose.model('user', user)
 const Projects = mongoose.models.projects || mongoose.model('projects',projectSchema)
 
 router.post("/login", async (req, res) => {
-    const { username, password } = req.body;
+    const { username, password } = req.body; 
 
     try {
         const user = await User.findOne({ username });

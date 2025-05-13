@@ -6,7 +6,9 @@ import dotenv from 'dotenv'
 // import { user } from './schemas/user'
 import {router as seed} from "./seed.js"
 import {router as authenticate} from "./routes/authenticate.js"
-import {router as user} from "./schemas/user.js"
+
+import { router as userData} from './routes/userData.js'
+
 import cors from 'cors'
 
 
@@ -23,8 +25,8 @@ app.use(cors())
 app.use(express.json())
 app.use('/authenticate',authenticate)
 app.use('/seed/populate',seed)
-app.use('/user',user)
 
+app.use('/userData',userData)
 
 app.listen(3000, () => {
     console.log('Server running on port 3000')

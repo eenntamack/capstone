@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import axios from 'axios'
-export default function Notes() {
+export default function Notes(props) {
     const [elements, setElements] = useState([]);
     
     const addElement = (e) => {
@@ -10,14 +10,25 @@ export default function Notes() {
     };
 
     const addData = async (e) =>{
-        e.preventDefault();
-        console.log("Submitted data:", elements);
-        //todo: add data to project schema
+        if(elements){
+                e.preventDefault();
 
-        const data = await axios.post("http://localhost:3000/authenticate/register",{
-            userKey: '',
-            data: elements
-        })
+            console.log("Submitted data:", elements);
+            //todo: add data to project schema 
+
+            const data = await axios.post("http://localhost:3000/userData",{
+                userKey: props.userKey,
+                elements: elements
+            })
+
+            if(data){
+                alert("successfully uploaded data")
+                window.location.reload();
+            }else{
+                alert("data could not be uploaded")
+            }
+        }
+        
     }
 
     
@@ -32,6 +43,7 @@ export default function Notes() {
                 <section >
                     <button onClick={addElement}>Add Element</button>
                     <button type="submit">Submit</button>
+                    
                 </section>
 
                 <div
@@ -45,6 +57,7 @@ export default function Notes() {
                     }}
                 >
                     {elements.map((_, index) => (
+                       
                         <div
                             key={index}
                             style={{
@@ -72,7 +85,9 @@ export default function Notes() {
                             <p>{new Date().getHours()}: {String(new Date().getMinutes()).padStart(2, '0')}</p>
                     
                             <input type="file"/>
+                            <button>Delete</button>
                         </div>
+                        
                     ))}
                 </div>
             </div>

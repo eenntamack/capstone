@@ -47,8 +47,6 @@ const booksSchema = new mongoose.Schema({
     hasImage: {type:Boolean,default:false},
     date: [log],
     due: {type:Date,default: Date.now()},
-
-    
 });
 
 export const projectSchema = new mongoose.Schema({

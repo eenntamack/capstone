@@ -4,3 +4,4 @@ libraries utilized:
   - p5
   - @gsap/react
   - bcrypt (A hashing library used for hashing passwords for better security)
+  - react-chartjs-2
