@@ -1,5 +1,6 @@
 import { Link, Outlet, useLocation,useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import Quotes from "./dynamic_components/Quotes";
+import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import {
   Chart as ChartJS,
@@ -28,11 +29,14 @@ export default function Home() {
   const [users, setUsers] = useState([]);
   const [len, setLen] = useState([]);
   const location = useLocation();
-  const userKey = location.state?.userKey;
-  
-  
+  const homePage = useRef();
+  const [showHome, setShowHome] = useState(true);
+  const navigate = useNavigate()
 
-  
+
+
+  const userKey = localStorage.getItem("userKey");
+
 
   useEffect(() => {
     
@@ -85,6 +89,10 @@ export default function Home() {
           display:true,
           color:'black',
           font:{
+
+
+
+
             size:'20px',
             weight:'bold'
           }
@@ -102,13 +110,36 @@ export default function Home() {
     }
   };
 
+  const removeAccount = ()=>{
+    axios.delete("http://localhost:3000/authenticate/login",{
+      data:{
+        userKey:userKey
+      }
+    }).then(res=>{
+      if(res){
+        alert("deletion successful, redirecting home")
+        navigate("/")
+      }else{
+        alert("deletion failed")
+      }
+    }).catch(e=>{
+        console.error("error processing deletion")
+        alert("error processing deletion")
+    })
+  }
+
+
   return (
     <>
+      <button onClick={removeAccount} >Delete Account</button>
+      <Quotes/>
+
       <Link to="project" state={{ userKey: userKey }}>
         <div style={{ width: '300px', height: '400px', backgroundColor: 'violet' }}>
-          Create a new Project
+        Create a new Project
         </div>
-      </Link>
+      </Link> 
+   
 
       <div>Content is stored here{JSON.stringify(users)}</div>
       <Line data={data} options={options} />

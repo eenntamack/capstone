@@ -44,7 +44,7 @@ function App() {
       {/* <p className='box' ref={reffered} onClick={clikFunc} style={{ padding: "30px" }}>
         Hello Capstone
       </p> */}
-      <Seed/>
+      
       <Outlet/>
       </main>
       <footer style={{height:'50px', backgroundColor:"orange", display:'flex', justifyContent:"center", alignItems:"center"}}>&copy;Eric Ntamack All rights reserved</footer>

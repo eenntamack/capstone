@@ -25,6 +25,7 @@ useEffect(() => {
         }));
 
         setElements(savedElements);
+        console.log(userData)
       }
     })
     .catch((e) => {
@@ -41,20 +42,22 @@ useEffect(() => {
 }, [elements]); 
 
   // ✅ Submit data
-  const addData = async (e) => {
+  const addData =  (e) => {
     e.preventDefault();
 
-    try {
-      const res = await axios.post("http://localhost:3000/userData", {
+    
+     axios.post("http://localhost:3000/userData", {
         userKey: props.userKey,
         elements
-      });
-
-      alert("Successfully uploaded data");
-      window.location.reload();
-    } catch (error) {
+      }).then((res)=>{
+        alert("Successfully uploaded data");
+        window.location.reload();
+      }).catch (error => {
       alert("Data could not be uploaded");
-    }
+     })
+
+      
+     
   };
 
   const handleInputChange = (index, field, value) => {
@@ -63,10 +66,24 @@ useEffect(() => {
     );
   };
 
-  const deleteStack =()=>{
-    const res = axios.delete("http://localhost:3000/userData",{
-        userKey: localStorage.getItem("userKey")
-      })
+  const deleteStack = ()=>{
+    if(elements.length > 0){
+        axios.delete("http://localhost:3000/userData",{
+        data:{ userKey: localStorage.getItem("userKey")}
+        }).then(res=>{
+            if (res.data.success){
+            alert("data deleted") 
+            setElements([])
+            window.location.reload()
+            }
+            else{
+            alert('data could not be deleted')
+            }
+
+        }).catch(e=>{
+            alert("error deleting data")
+        })
+    }
   }
 
   return (
@@ -124,7 +141,7 @@ useEffect(() => {
               <button type="button" onClick={() => {
                 setElements(prev => prev.filter((_, i) => i !== index))
               }}>Delete</button>
-              <button type="button" >AddSection</button>
+              
             </div>
           ))}
         </div>
