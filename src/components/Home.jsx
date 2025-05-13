@@ -49,14 +49,15 @@ export default function Home() {
 
 
   const data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+    labels: Array.isArray(users) ? users.map((user,index) => index) : [],
     datasets: [
       {
-        label: 'Users',
+        label: 'Notes',
         data: Array.isArray(users) ? users.map(user => user.books.length) : [],
         fill: false,
         borderColor: 'rgb(14, 49, 49)',
-        tension: 0.3,
+        tension: 0.2,
+        color:'black'
       },
     ],
   };
@@ -66,8 +67,39 @@ export default function Home() {
     plugins: {
       legend: {
         position: 'bottom',
+        labels:{
+          color:'black'
+        }
       },
     },
+    scales: {
+      x: {
+        ticks: {
+          color: 'black' // X-axis label color
+        },
+        grid: {
+          color: 'black' // X-axis grid line color
+        },
+        title:{
+          text: 'Iterations',
+          display:true,
+          color:'black',
+          font:{
+            size:'20px',
+            weight:'bold'
+          }
+        }
+
+      },
+      y: {
+        ticks: {
+          color: 'black' // Y-axis label color
+        },
+        grid: {
+          color: 'black' // Y-axis grid line color
+        }
+      }
+    }
   };
 
   return (
