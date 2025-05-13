@@ -64,7 +64,9 @@ useEffect(() => {
   };
 
   const deleteStack =()=>{
-  
+    const res = axios.delete("http://localhost:3000/userData",{
+        userKey: localStorage.getItem("userKey")
+      })
   }
 
   return (
