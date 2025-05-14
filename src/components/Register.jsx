@@ -42,8 +42,19 @@ export default function Register({onLogged}) {
                 flexDirection: 'column',
                 border: '5px solid black',
                 padding: '10px',
-                maxWidth: '300px',
-                margin: '10px auto'
+                maxWidth: '400px',
+                margin: '10px auto',
+                height: '550px',
+                width: '400px',
+                maxHeight:'550px',
+                minHeight:'550px',
+            
+
+                justifyContent:'center',
+                alignItems:'center',
+                rowGap:'50px',
+                borderRadius:'20px',
+                boxShadow:'5px 5px '
             }}
         >
             <label style={{ display: 'flex', flexDirection: 'column' }}>
