@@ -9,6 +9,7 @@ export default function Questions(){
     const rank = useRef()
     const [question , setQuestion] = useState(0)
     const [renderLink, setRenderLink] = useState(false)
+    
     const homeLink = useRef(null)
 
     const questions  = [
@@ -26,15 +27,12 @@ export default function Questions(){
         console.log(`question ${nextIndex}`);
         if (nextIndex < questions.length) {
           setQuestion(nextIndex);
-      
-          if (nextIndex === questions.length) {
-            setRenderLink(true);
-          }
-        }else{
-            setRenderLink(true);
-            q.current.style.display="none"
-            rank.current.style.display="none"
+        } else {
+          setRenderLink(true);
+          q.current.style.display = "none";
+          rank.current.style.display = "none";
         }
+       
     }
     useGSAP(() => {
         gsap.from('.question', {
@@ -44,14 +42,20 @@ export default function Questions(){
       }, [question]);
 
     return(
-    <div ref={container}>
-        <p className="question" ref={q}>{questions[question]}</p>
-        <div className="ranking" style={{display:'flex', flexDirection:"row",alignItems:"center",justifyContent:"center"}} ref={rank}>
+    <div ref={container} style={{display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+        <p className="question" ref={q} style={{position:"sticky"}}>{questions[question]}</p>
+        <div className="ranking" style={{display:'flex', flexDirection:"row",alignItems:"center",justifyContent:"center",width:"200px",height:"90px"}} ref={rank}>
         {[1, 2, 3, 4, 5].map((val) => (
           <p
             key={val}
             onClick={() => nextQ(val)}
-            style={{ fontSize: "30px", padding: "20px", cursor: "pointer" }}
+            style={{ 
+              fontSize: "30px", 
+              transition:"0.3s ease",
+              padding: "20px", 
+              cursor: "pointer" }}
+            onMouseEnter={(e)=> e.currentTarget.style.fontSize = "35px"}
+            onMouseLeave={(e)=> e.currentTarget.style.fontSize = "30px"}
           >
             {val}
           </p>

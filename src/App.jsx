@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet,Link } from 'react-router-dom';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
+
 
 import Seed from './components/Seed';
 import Hero from './components/Hero'
@@ -38,16 +39,31 @@ function App() {
 
   return (
 
-    <div style={{display: 'flex', flexDirection: 'column', minHeight: '100vh', backgroundColor: 'blue', overflow: 'hidden', justifyContent:"center"}}>
-      <header style={{height:'50px', display:'flex', justifyContent:'center', alignItems:'center', backgroundColor:'purple'}}>the header</header>
-      <main style={{flex: '1', padding: '30px', backgroundColor:"green" ,display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+    <div style={{
+      display: 'flex', 
+      flexDirection: 'column', 
+      height:'100%',
+      maxHeight:'950px',
+      backgroundColor: 'blue', 
+      overflow: 'hidden', 
+      justifyContent:"center",
+
+      }}>
+      <header style={{
+        height:'50px', 
+        display:'flex', 
+        justifyContent:'center', 
+        alignItems:'center', 
+        backgroundColor:'#BEBBBB'
+        }}><Link to="/">Home</Link></header>
+      <main style={{flex: '1', padding: '30px', backgroundColor:"#444054" ,display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
       {/* <p className='box' ref={reffered} onClick={clikFunc} style={{ padding: "30px" }}>
         Hello Capstone
       </p> */}
       
       <Outlet/>
       </main>
-      <footer style={{height:'50px', backgroundColor:"orange", display:'flex', justifyContent:"center", alignItems:"center"}}>&copy;Eric Ntamack All rights reserved</footer>
+      <footer style={{height:'50px', backgroundColor:"#BEBBBB", display:'flex', justifyContent:"center", alignItems:"center"}}>&copy;Eric Ntamack All rights reserved</footer>
     </div>
 
   );
