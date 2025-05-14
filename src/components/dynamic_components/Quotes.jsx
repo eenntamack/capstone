@@ -13,7 +13,7 @@ export default function Quotes(){
         })
     },[])
     return(
-        <div>
+        <div style={{position:'relative'}}>
 
             <p>{quote.q}</p>
             <p>{quote.a}</p>

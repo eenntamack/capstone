@@ -41,11 +41,9 @@ useEffect(() => {
   }
 }, [elements]); 
 
-  // ✅ Submit data
+  // Submitting Data
   const addData =  (e) => {
     e.preventDefault();
-
-    
      axios.post("http://localhost:3000/userData", {
         userKey: props.userKey,
         elements
@@ -55,9 +53,6 @@ useEffect(() => {
       }).catch (error => {
       alert("Data could not be uploaded");
      })
-
-      
-     
   };
 
   const handleInputChange = (index, field, value) => {
@@ -66,6 +61,7 @@ useEffect(() => {
     );
   };
 
+  //DeletingAllData
   const deleteStack = ()=>{
     if(elements.length > 0){
         axios.delete("http://localhost:3000/userData",{
@@ -87,9 +83,9 @@ useEffect(() => {
   }
 
   return (
-    <form onSubmit={addData} id="projectarea" style={{ padding: '10px' }}>
-      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start' }}>
-        <section>
+    <form onSubmit={addData} id="projectarea" style={{ padding: '10px', height:'auto' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center',backgroundColor:'maroon', width:'1000px' }}>
+        <section style={{margin:'10px'}}>
           <button onClick={addElement}>Add Element</button>
           <button type="submit">Submit</button>
           <button type="button" onClick={deleteStack}>Delete</button>
@@ -102,7 +98,7 @@ useEffect(() => {
             height: '400px',
             overflowY: 'scroll',
             marginLeft: '20px',
-            padding: '10px',
+            padding: '20px',
             width: '850px',
           }}
         >
@@ -116,28 +112,35 @@ useEffect(() => {
                 marginBottom: '30px',
                 padding: '30px',
                 display: 'flex',
-                flexDirection: 'column'
+                flexDirection: 'column',
+                justifyContent:'center',
+                alignItems:'center',
+                rowGap:'10px',
+                borderRadius:'10px'
               }}
             >
               <input
                 type="text"
-                placeholder={`Element ${index + 1}`}
+                placeholder={`Heading ${index + 1}`}
                 value={element.title}
                 onChange={(e) => handleInputChange(index, 'title', e.target.value)}
+                required
               />
               <textarea
                 style={{
                   width: '100%',
-                  height: '250px',
+                  height: '550px',
                   resize: 'none',
-                  fontSize: '20px'
+                  fontSize: '20px',
+                  borderRadius:'5px'
                 }}
                 value={element.content}
                 onChange={(e) => handleInputChange(index, 'content', e.target.value)}
+                required
               ></textarea>
-              <p>{new Date().getDate()}</p>
+              {/* <p>{new Date().getDate()}</p>
               <p>{new Date().getMonth() + 1}</p>
-              <p>{new Date().getHours()}: {String(new Date().getMinutes()).padStart(2, '0')}</p>
+              <p>{new Date().getHours()}: {String(new Date().getMinutes()).padStart(2, '0')}</p> */}
               <button type="button" onClick={() => {
                 setElements(prev => prev.filter((_, i) => i !== index))
               }}>Delete</button>

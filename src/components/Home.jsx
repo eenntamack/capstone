@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation,useNavigate } from "react-router-dom";
 import Quotes from "./dynamic_components/Quotes";
 import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
+import PassUpdate from "./dynamic_components/PassUpdate";
 import {
   Chart as ChartJS,
   LineElement,
@@ -129,22 +130,44 @@ export default function Home() {
   }
 
 
-  return (
-    <>
-      <button onClick={removeAccount} >Delete Account</button>
-      <Quotes/>
+  const updatePassword = ()=>{
+    navigate("/update")
+  }
 
-      <Link to="project" state={{ userKey: userKey }}>
-        <div style={{ width: '300px', height: '400px', backgroundColor: 'violet' }}>
-        Create a new Project
-        </div>
-      </Link> 
+
+  return (
+<div style={{
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start', 
+  alignItems: 'center',
+  position: 'relative',
+  minHeight: '100%',            
+  padding: '20px',              
+  boxSizing: 'border-box',
+  rowGap:'30px'        
+}}>      <div>
+            <button onClick={removeAccount} >Delete Account</button>
+            <button onClick={updatePassword} >updatePassword</button>
+          </div>
+      <div style={{backgroundColor:'yellow'}}>
+        <Quotes/>
+      </div>
+      <div style={{backgroundColor:'green'}}>
+        <Link to="project" state={{ userKey: userKey }}>
+          <div style={{ width: '100px', height: '100px', backgroundColor: 'violet' }}>
+          Create a new Project
+          </div>
+        </Link> 
+      </div>
    
 
-      <div>Content is stored here{JSON.stringify(users)}</div>
-      <Line data={data} options={options} />
+      {/* <div>Content is stored here{JSON.stringify(users)}</div> */}
+      <div style={{ backgroundColor:'blue', display:'flex', justifyContent:'center', alignItems:'center', width:'800px'}} >
+        <Line data={data} options={options} />
+      </div>
 
-      {/* Uncomment this section if you want to display user data */}
+      {/* Unused date data , will implement in the future */}
       {/* 
       {Array.isArray(users) && users.map((u, index) => (
         <div key={index}>
@@ -164,6 +187,6 @@ export default function Home() {
       */}
 
       <Outlet />
-    </>
+    </div>
   );
 }

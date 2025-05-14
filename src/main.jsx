@@ -9,6 +9,7 @@ import Project from './components/dynamic_components/Project'
 import Seed from './components/Seed';
 import Login from './components/Login';
 import Register from './components/Register';
+import PassUpdate from './components/dynamic_components/PassUpdate';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -20,7 +21,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path="project" element={<Project/>}/>
       </Route>
       <Route path="login" element={<Login/>}></Route>
-      <Route path="register" element={<Register/>}></Route>
+      <Route path="register" element={<Register/>}>
+        
+      </Route>
+      <Route path="/update" element={<PassUpdate/>}></Route>
       <Route path="/seed" element={<Seed/>}></Route>
     </Route>
     

@@ -42,9 +42,8 @@ function App() {
       display: 'flex', 
       flexDirection: 'column', 
       maxHeight:'770px',
-      height:'770px',
-      backgroundColor: 'blue', 
-      overflow: 'scroll', 
+
+      
       justifyContent:"center",
 
       }}>
@@ -55,7 +54,7 @@ function App() {
         alignItems:'center', 
         backgroundColor:'#BEBBBB'
         }}><Link to="/">Home</Link></header>
-      <main style={{flex: '1', padding: '30px', backgroundColor:"#444054" ,display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+      <main style={{ padding: '10px', backgroundColor:"#444054" ,display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",height:'770px', overflow:'scroll'}}>
       {/* <p className='box' ref={reffered} onClick={clikFunc} style={{ padding: "30px" }}>
         Hello Capstone
       </p> */}

@@ -75,7 +75,7 @@ useGSAP(() => {
       display:'flex',
       justifyContent:'center', 
       alignItems:'center', 
-      overflow:'hidden', 
+      overflow:'scroll', 
       //backgroundColor:'red'
       }}>
 <div

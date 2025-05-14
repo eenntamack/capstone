@@ -5,9 +5,8 @@ export default function Project(props){
     const userKey = location.state?.userKey || localStorage.getItem("userKey");
     return( 
         
-        <div>
+        <div style={{position:'relative'}}>
             <Notes userKey={userKey}/>
-            projects worked on
         </div>
     )
 }
