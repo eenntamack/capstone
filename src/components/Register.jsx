@@ -48,8 +48,6 @@ export default function Register({onLogged}) {
                 width: '400px',
                 maxHeight:'550px',
                 minHeight:'550px',
-            
-
                 justifyContent:'center',
                 alignItems:'center',
                 rowGap:'50px',
@@ -63,6 +61,13 @@ export default function Register({onLogged}) {
                     name="username"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
+                    style={{
+                                    width:'180px',
+                                    height:'30px',
+                                    fontSize:'20px',
+                                    backgroundColor:'#2F243A',
+                                    color:'white'
+                                }}
                     required
                 />
             </label>
@@ -73,6 +78,13 @@ export default function Register({onLogged}) {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    style={{
+                                    width:'180px',
+                                    height:'30px',
+                                    fontSize:'20px',
+                                    backgroundColor:'#2F243A',
+                                    color:'white'
+                                }}
                     required
                 />
             </label>
@@ -83,11 +95,27 @@ export default function Register({onLogged}) {
                     type="password"
                     value={confirmPass}
                     onChange={(e) => setConfirmPass(e.target.value)}
+                    style={{
+                                    width:'180px',
+                                    height:'30px',
+                                    fontSize:'20px',
+                                    backgroundColor:'#2F243A',
+                                    color:'white'
+                                }}
                     required
                 />
             </label>
 
-            <button type="submit" style={{ marginTop: '15px' }}>Register</button>
+            <button type="submit" style={{
+                                width:'120px', 
+                                height:'30px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',
+                            
+                        }}>Register</button>
         </form>
     );
 }

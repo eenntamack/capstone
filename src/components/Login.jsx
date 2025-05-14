@@ -40,7 +40,7 @@ export default function Login() {
     return (
         <div style={{backgroundColor:'transparent'}}>
             {canLogin ? (
-                <>
+                <div style={{display:'flex', justifyContent:'center', alignItems:'center', flexDirection:'column'}}>
                     <form
                         onSubmit={logUser}
                         id="login"
@@ -65,6 +65,7 @@ export default function Login() {
                         <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px' }}>
                             Username
                             <input
+                                type="text"
                                 id="lUsername"
                                 name="lUsername"
                                 value={username}
@@ -106,31 +107,40 @@ export default function Login() {
                                 alignItems:'center',
                                 fontSize:'15px',
                                 borderRadius:'3px',
-                                boxShadow:'3px 3px '
+                            
                         }}>Login</button>
                     </form>
-                    <button onClick={toggleForm}><div style={{
-                        width:'190px', 
-                        height:'50px', 
+                    <button onClick={toggleForm} style={{
+                        width:'120px', 
+                        height:'30px', 
                         display:'flex', 
                         justifyContent:'center', 
                         alignItems:'center',
                         fontSize:'15px',
-                        borderRadius:'10px',
-                        boxShadow:'5px 5px black'
+                        borderRadius:'3px',
+                    
                        
                     
-                    }}>Create an account</div></button>
-                </>
+                    }}>Create account</button>
+                </div>
             ) : (
-                <>
+                <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'}}>
             <Register onLogged={({ username, password }) => {
                 setUsername(username);
                 setPassword(password);
                 setCanLogin(true); // Return to login form after successful registration
             }} />
-                    <button onClick={toggleForm}>Back to Login</button>
-                </>
+                    <button onClick={toggleForm} style={{
+                                width:'120px', 
+                                height:'30px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',
+                            
+                        }}>Back to Login</button>
+                </div>
             )}
         </div>
     );

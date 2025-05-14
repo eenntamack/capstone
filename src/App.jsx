@@ -3,9 +3,8 @@ import { Outlet,Link } from 'react-router-dom';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
 
-
 import Seed from './components/Seed';
-import Hero from './components/Hero'
+import Hero from './components/Hero';
 import './App.css';
 
 function App() {
@@ -26,9 +25,9 @@ function App() {
   // }, { scope: container });// <-- scope is for selector text (optional)
   // ref={container}
 
-  function clikFunc() {
-    setBgColor((prev) => (prev === "blue" ? "red" : "blue"));
-  }
+  // function clikFunc() {
+  //   setBgColor((prev) => (prev === "blue" ? "red" : "blue"));
+  // }
 
   useEffect(() => {
     if (reffered.current) {
@@ -42,10 +41,10 @@ function App() {
     <div style={{
       display: 'flex', 
       flexDirection: 'column', 
-      height:'100%',
-      maxHeight:'950px',
+      maxHeight:'770px',
+      height:'770px',
       backgroundColor: 'blue', 
-      overflow: 'hidden', 
+      overflow: 'scroll', 
       justifyContent:"center",
 
       }}>
