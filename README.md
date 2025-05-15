@@ -1,12 +1,28 @@
-# React + Vite
+# Note taking, tracking applcation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a note taking MERN application where a user can save their notes and keep track on their productivity, based on the amount of notes the user makes and can access through authentication
 
-Currently, two official plugins are available:
+**This is the front end portion of the application** 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This application utilizes a few libraries to make this process possible:
+## react-ChartJS
 
-## Expanding the ESLint configuration
+ - A chart making library where you can display data in real time
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## bcrypt 
+
+ - A hashing library that uses an algorithm to safely encrypt the user's password
+
+## gsap & gsap/react
+
+ - A responsive animation library that can dynamically control almost any property on the page, and increase functionality of UX interaction
+
+There were a few libraries that I didnt get the chance to use due to time constraint
+
+## multer
+
+ - an express library that converts files that enables the download of files through
+
+## p5
+
+ - an artistic library that utilizes the canvas for drawing and interaction
