@@ -42,6 +42,7 @@ function App() {
       display: 'flex', 
       flexDirection: 'column', 
       maxHeight:'770px',
+      
 
       
       justifyContent:"center",
@@ -52,7 +53,8 @@ function App() {
         display:'flex', 
         justifyContent:'center', 
         alignItems:'center', 
-        backgroundColor:'#BEBBBB'
+        backgroundColor:'#BEBBBB',
+        borderRadius:'20px 20px 0px 0px',
         }}><Link to="/" style={{textDecoration:'none'}}>
           <div style={{fontSize:'20px', color:'#2F243A'}}>Home</div>
         </Link><div style={{width:'50px',height:'50px'}}></div></header>
@@ -63,7 +65,7 @@ function App() {
       
       <Outlet/>
       </main>
-      <footer style={{height:'50px', backgroundColor:"#BEBBBB", display:'flex', justifyContent:"center", alignItems:"center", color:'#2F243A'}}>&copy;Eric Ntamack All rights reserved</footer>
+      <footer style={{height:'50px', backgroundColor:"#BEBBBB", display:'flex', justifyContent:"center", alignItems:"center", color:'#2F243A', borderRadius:'0px 0px 20px 20px',}}>&copy;Eric Ntamack All rights reserved</footer>
     </div>
 
   );
