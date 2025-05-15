@@ -44,7 +44,7 @@ export default function PassUpdate(){
             border:'black 10px solid', 
             borderRadius:'10px',
             backgroundColor:'#2F243A'}}>
-            <label style={{display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+            <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px',color:"#BEBBBB" }}>
                 current password
                 <input type="password" name="previousPass" onChange={(e)=>{setPreviousPass(e.target.value)}}
                 style={{ width:'180px',
@@ -53,7 +53,7 @@ export default function PassUpdate(){
                             backgroundColor:'#2F243A',
                             color:'white'}}></input>
             </label>
-            <label style={{display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+            <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px',color:"#BEBBBB" }}>
                 new password
                 <input type="password" name="newPass" onChange={(e)=>{setNewPass(e.target.value)}}
                 style={{ width:'180px',
