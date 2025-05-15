@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect,useContext } from 'react';
 import { Outlet,Link } from 'react-router-dom';
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
@@ -53,7 +53,9 @@ function App() {
         justifyContent:'center', 
         alignItems:'center', 
         backgroundColor:'#BEBBBB'
-        }}><Link to="/">Home</Link></header>
+        }}><Link to="/" style={{textDecoration:'none'}}>
+          <div style={{fontSize:'20px', color:'#2F243A'}}>Home</div>
+        </Link><div style={{width:'50px',height:'50px'}}></div></header>
       <main style={{ padding: '10px', backgroundColor:"#444054" ,display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",height:'770px', overflow:'scroll'}}>
       {/* <p className='box' ref={reffered} onClick={clikFunc} style={{ padding: "30px" }}>
         Hello Capstone
@@ -61,7 +63,7 @@ function App() {
       
       <Outlet/>
       </main>
-      <footer style={{height:'50px', backgroundColor:"#BEBBBB", display:'flex', justifyContent:"center", alignItems:"center"}}>&copy;Eric Ntamack All rights reserved</footer>
+      <footer style={{height:'50px', backgroundColor:"#BEBBBB", display:'flex', justifyContent:"center", alignItems:"center", color:'#2F243A'}}>&copy;Eric Ntamack All rights reserved</footer>
     </div>
 
   );

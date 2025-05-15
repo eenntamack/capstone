@@ -2,10 +2,16 @@ import { Link } from "react-router-dom";
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react';
 import { SplitText } from "gsap/SplitText";
-import { useRef } from "react";
+import { useRef, useContext, useState,createContext } from "react";
 import { arrayMult } from "./helpers/helpers";
+
+
+
 export default function Hero() {
   const container = useRef();
+  //const ThemeContext = createContext("dark")
+  //const themeSet = useContext(ThemeContext);
+  const [theme, setTheme] = useState('dark')
   
 
   gsap.registerPlugin(useGSAP);
@@ -19,6 +25,7 @@ useGSAP(() => {
     x: 50,
     rotation: 40,
     duration: 0.25,
+    boxShadow:'10px 10px 0px 0px' ,
     opacity: 1,
     stagger: {
       each: 0.025,
@@ -41,6 +48,7 @@ useGSAP(() => {
     backgroundColor: '#2F243A',
     x: 50,
     borderRadius:'10px',
+    boxShadow:'0px 20px 0px 0px',
     rotation: -40,
     duration: 0.25,
     opacity: 1,
@@ -90,7 +98,7 @@ useGSAP(() => {
     alignItems: "center",
   }}
 >
-    <Link to="/survey" style={{ textDecoration: "none" }}>
+    <Link to="/survey" style={{ textDecoration: "none" }} state={{theme: theme}}>
       <div
         style={{
           fontSize: "90px",
@@ -123,7 +131,7 @@ useGSAP(() => {
     transform: 'translate(-50%, -50%)'}}>
         <div  style={{position:'relative',display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', gap:'0px' , height:'100px'}}>
           {
-            (arrayMult([0],110)).map( _ =>(
+            (arrayMult([0],150)).map( _ =>(
                 <div className="box" style={{
                   backgroundColor:"#BEBBBB", 
                   width:"10px", height:"30px", 
@@ -132,7 +140,8 @@ useGSAP(() => {
                   borderRadius:'10px',
                   display:"flex",
                   flexDirection:'column',
-                  justifyContent:"space-between" }}> 
+                  justifyContent:"space-between",
+                  boxShadow:'10px 0px 0px 0px' }}> 
                   <div style={{
                     backgroundColor:"#826AED", 
                     width:"10px", 

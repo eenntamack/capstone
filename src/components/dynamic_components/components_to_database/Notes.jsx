@@ -84,18 +84,57 @@ useEffect(() => {
 
   return (
     <form onSubmit={addData} id="projectarea" style={{ padding: '10px', height:'auto' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center',justifyContent:'center',backgroundColor:'maroon', width:'1000px' }}>
-        <section style={{margin:'10px'}}>
-          <button onClick={addElement}>Add Element</button>
-          <button type="submit">Submit</button>
-          <button type="button" onClick={deleteStack}>Delete</button>
+      <div style={{ display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center',
+                    justifyContent:'center',
+                    backgroundColor:'#2F243A', 
+                    width:'1000px',
+                    borderRadius:'20px',
+                    borderColor:'#34E4EA',
+                    borderWidth:'2px',
+                    borderStyle:'dashed' }}>
+        <section style={{margin:'10px', display:'flex', flexDirection:'row', alignItems:'center', justifyContent:'center', height:'80px', width:'380px'}}>
+          <button onClick={addElement}
+          style={{
+                                width:'120px', 
+                                height:'30px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',  
+                        }}
+          >Add Element</button>
+          <button type="submit"
+            style={{
+                                width:'120px', 
+                                height:'30px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',  
+            }}
+          >Submit</button>
+          <button type="button" onClick={deleteStack}
+          style={{
+                                width:'120px', 
+                                height:'30px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',  
+          }}
+          >Delete</button>
           
         </section>
 
         <div
         ref={scrollRef}
           style={{
-            height: '400px',
+            height: '460px',
             overflowY: 'scroll',
             marginLeft: '20px',
             padding: '20px',
@@ -104,10 +143,10 @@ useEffect(() => {
         >
           {elements.map((element, index) => (
             <div
-              key={index}
+              key={index + 'note'}
               style={{
-                height: '300px',
-                backgroundColor: 'red',
+                height: '380px',
+                backgroundColor: '#444054',
                 marginTop: '10px',
                 marginBottom: '30px',
                 padding: '30px',
@@ -116,7 +155,10 @@ useEffect(() => {
                 justifyContent:'center',
                 alignItems:'center',
                 rowGap:'10px',
-                borderRadius:'10px'
+                borderRadius:'10px',
+                borderStyle:'solid',
+                borderColor:'#34E4EA',
+                borderWidth:'3px'
               }}
             >
               <input
@@ -124,26 +166,48 @@ useEffect(() => {
                 placeholder={`Heading ${index + 1}`}
                 value={element.title}
                 onChange={(e) => handleInputChange(index, 'title', e.target.value)}
+                style={{
+                                    width:'180px',
+                                    height:'30px',
+                                    fontSize:'20px',
+                                    backgroundColor:'#2F243A',
+                                    color:'white'
+                      }}
+                      key={index + 'worktitle'}
                 required
               />
               <textarea
                 style={{
                   width: '100%',
-                  height: '550px',
+                  height: '350px',
                   resize: 'none',
                   fontSize: '20px',
-                  borderRadius:'5px'
+                  borderRadius:'5px',
+                  backgroundColor:'#2F243A',
+                  color:'white'
                 }}
                 value={element.content}
                 onChange={(e) => handleInputChange(index, 'content', e.target.value)}
+                key={index + 'workspace'}
                 required
               ></textarea>
+              <p style={{position:'static'}}>{index }</p>
               {/* <p>{new Date().getDate()}</p>
               <p>{new Date().getMonth() + 1}</p>
               <p>{new Date().getHours()}: {String(new Date().getMinutes()).padStart(2, '0')}</p> */}
               <button type="button" onClick={() => {
                 setElements(prev => prev.filter((_, i) => i !== index))
-              }}>Delete</button>
+              }}
+              style={{
+                                width:'120px', 
+                                height:'40px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',  
+              }}
+              >Delete</button>
               
             </div>
           ))}

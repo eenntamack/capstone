@@ -1,6 +1,7 @@
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
+
 export default function PassUpdate(){   
     const navigate = useNavigate()
     const [newPass,setNewPass] = useState()
@@ -32,18 +33,29 @@ export default function PassUpdate(){
   };
 
     return(
-        <form onSubmit={updatePass}>
-            <label>
+        <form onSubmit={updatePass} style={{
+            width:'400px',
+            height:'500px', 
+            display:'flex', 
+            flexDirection:'column', 
+            justifyContent:'center',
+            alignItems:'center', 
+            rowGap:'40px', 
+            border:'black 10px solid', 
+            borderRadius:'10px',
+            backgroundColor:'#2F243A'}}>
+            <label style={{display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                 current password
                 <input type="password" name="previousPass" onChange={(e)=>{setPreviousPass(e.target.value)}}></input>
             </label>
-            <label>
+            <label style={{display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                 new password
                 <input type="password" name="newPass" onChange={(e)=>{setNewPass(e.target.value)}}></input>
             </label>
             
             
             <button type="submit">Update Password</button>
+            <Link to="/home">Workspace</Link>
         </form>
         
     )

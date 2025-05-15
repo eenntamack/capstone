@@ -53,8 +53,7 @@ export default function Login() {
                             width: '400px',
                             maxHeight:'550px',
                             minHeight:'550px',
-                      
-
+                            backgroundColor:'#2F243A',
                             justifyContent:'center',
                             alignItems:'center',
                             rowGap:'50px',
@@ -62,7 +61,7 @@ export default function Login() {
                             boxShadow:'5px 5px '
                         }}
                     >
-                        <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px' }}>
+                        <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px', color:"#BEBBBB" }}>
                             Username
                             <input
                                 type="text"
@@ -80,7 +79,7 @@ export default function Login() {
                                 required
                             />
                         </label>
-                        <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px' }}>
+                        <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px',color:"#BEBBBB" }}>
                             Password
                             <input
                                 id="lPassword"
@@ -96,6 +95,7 @@ export default function Login() {
                                     color:'white'
                                 }}
                                 required
+                                
                             />
                         </label>
                         <button type="submit"
@@ -106,8 +106,7 @@ export default function Login() {
                                 justifyContent:'center', 
                                 alignItems:'center',
                                 fontSize:'15px',
-                                borderRadius:'3px',
-                            
+                                borderRadius:'3px',  
                         }}>Login</button>
                     </form>
                     <button onClick={toggleForm} style={{

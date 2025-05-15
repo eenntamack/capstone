@@ -6,6 +6,7 @@ export default function Questions(){
 
     const container = useRef()
     const q = useRef()
+    const rankClarity = useRef()
     const rank = useRef()
     const [question , setQuestion] = useState(0)
     const [renderLink, setRenderLink] = useState(false)
@@ -13,10 +14,9 @@ export default function Questions(){
     const homeLink = useRef(null)
 
     const questions  = [
-        'Are there any personal projects or goals you\'ve worked on in the past that you\'ve been dying to complete?',
-        'On a scale from 1 to 5 how often do you complete your goals',
-        'On a scale from 1 to 5 how organized are your',
-        'Improvements?'
+        'You often complete your goals',
+        'It it easy for you to keep track of your notes',
+        'Other note taking platforms made your workload easier'
     ]
 
     function nextQ(scoreVal) {
@@ -31,6 +31,7 @@ export default function Questions(){
           setRenderLink(true);
           q.current.style.display = "none";
           rank.current.style.display = "none";
+          rankClarity.current.style.display ="none"
         }
        
     }
@@ -61,9 +62,14 @@ export default function Questions(){
           </p>
         ))}
         </div>
+        <div ref={rankClarity} ><p style={{display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center', columnGap:'10px', height:'30px'}}>
+          <p style={{fontSize:'30px'}}>1</p> = <p style={{fontSize:'30px'}}>:(</p> <p style={{width:'40px'}}></p><p style={{fontSize:'30px'}}>5</p> = <p style={{fontSize:'30px'}}>:)</p></p>
+        </div>
+        
+        
         {renderLink && (
         <div ref={homeLink} style={{ marginTop: "20px" }}>
-          <Link to="/login" style={{ fontWeight: "bold", color: "blue" }}>
+          <Link to="/login" style={{ fontWeight: "bold", color: "#BEBBBB", fontSize:'30px', textDecoration: 'none' }}>
             Login
           </Link>
         </div>

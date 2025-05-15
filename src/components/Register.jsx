@@ -36,6 +36,7 @@ export default function Register({onLogged}) {
     return (
         <form
             onSubmit={registration}
+            
             method="POST"
             style={{
                 display: 'flex',
@@ -52,10 +53,11 @@ export default function Register({onLogged}) {
                 alignItems:'center',
                 rowGap:'50px',
                 borderRadius:'20px',
-                boxShadow:'5px 5px '
+                boxShadow:'5px 5px ',
+                backgroundColor:'#2F243A'
             }}
         >
-            <label style={{ display: 'flex', flexDirection: 'column' }}>
+            <label style={{ display: 'flex', flexDirection: 'column',fontSize:'30px', rowGap:'20px', justifyContent:'center', alignItems:'center', color:"#BEBBBB" }}>
                 Username:
                 <input
                     name="username"
@@ -72,7 +74,7 @@ export default function Register({onLogged}) {
                 />
             </label>
 
-            <label style={{ display: 'flex', flexDirection: 'column', marginTop: '10px' }}>
+            <label style={{ display: 'flex', flexDirection: 'column',fontSize:'30px', rowGap:'20px',justifyContent:'center', alignItems:'center', color:"#BEBBBB" }}>
                 Password:
                 <input
                     type="password"
@@ -86,10 +88,14 @@ export default function Register({onLogged}) {
                                     color:'white'
                                 }}
                     required
+                    minLength={5}
+                    autoComplete="new-password"
+                    
+                    
                 />
             </label>
 
-            <label style={{ display: 'flex', flexDirection: 'column', marginTop: '10px' }}>
+            <label style={{ display: 'flex', flexDirection: 'column', fontSize:'30px', rowGap:'20px', justifyContent:'center', alignItems:'center', color:"#BEBBBB" }}>
                 Confirm Password:
                 <input
                     type="password"
@@ -103,6 +109,9 @@ export default function Register({onLogged}) {
                                     color:'white'
                                 }}
                     required
+                    minLength={5}
+                    autoComplete="new-password"
+                    
                 />
             </label>
 

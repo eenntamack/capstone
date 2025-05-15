@@ -3,6 +3,10 @@ import Quotes from "./dynamic_components/Quotes";
 import { useEffect, useState, useRef } from "react";
 import axios from 'axios';
 import PassUpdate from "./dynamic_components/PassUpdate";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import Project from "./dynamic_components/Project";
 import {
   Chart as ChartJS,
   LineElement,
@@ -30,9 +34,11 @@ export default function Home() {
   const [users, setUsers] = useState([]);
   const [len, setLen] = useState([]);
   const location = useLocation();
-  const homePage = useRef();
+  const homePage = useRef(null);
   const [showHome, setShowHome] = useState(true);
   const navigate = useNavigate()
+  gsap.registerPlugin(useGSAP);
+  gsap.registerPlugin(ScrollToPlugin);
 
 
 
@@ -60,52 +66,48 @@ export default function Home() {
         label: 'Notes',
         data: Array.isArray(users) ? users.map(user => user.books.length) : [],
         fill: false,
-        borderColor: 'rgb(14, 49, 49)',
+        borderColor: '#34E4EA',
         tension: 0.2,
         color:'black'
       },
     ],
   };
-
   const options = {
     responsive: true,
     plugins: {
       legend: {
         position: 'bottom',
         labels:{
-          color:'black'
+          color:'#34E4EA'
         }
       },
     },
     scales: {
       x: {
         ticks: {
-          color: 'black' // X-axis label color
+          color: '#34E4EA' // X-axis label color
         },
         grid: {
-          color: 'black' // X-axis grid line color
+          color: '#34E4EA' // X-axis grid line color
         },
         title:{
           text: 'Iterations',
           display:true,
-          color:'black',
+          color:'#34E4EA',
           font:{
-
-
-
-
             size:'20px',
-            weight:'bold'
+            weight:'bold',
+            color:'#34E4EA'
           }
         }
-
       },
       y: {
         ticks: {
-          color: 'black' // Y-axis label color
+          color: '#34E4EA', // Y-axis label color
+          stepSize:1
         },
         grid: {
-          color: 'black' // Y-axis grid line color
+          color: '#34E4EA' // Y-axis grid line color
         }
       }
     }
@@ -135,6 +137,23 @@ export default function Home() {
   }
 
 
+  const logOut = ()=>{
+    localStorage.setItem("userKey", "")
+    navigate("/login")
+  }
+
+
+
+  const scrollBottom =()=>{
+
+      gsap.to(homePage.current,{
+        scrollTo:{y: homePage.current.scrollHeight},
+        duration:1,
+        ease:'power2.inOut'
+      })
+    
+  }
+
   return (
 <div style={{
   display: 'flex',
@@ -145,27 +164,79 @@ export default function Home() {
   minHeight: '100%',            
   padding: '20px',              
   boxSizing: 'border-box',
-  rowGap:'30px'        
-}}>      <div>
-            <button onClick={removeAccount} >Delete Account</button>
-            <button onClick={updatePassword} >updatePassword</button>
+  rowGap:'30px',
+  margin:'30px'  
+}}
+    ref={homePage}
+    className="homepage"
+>     
+    <div style={{
+      display:'flex',
+      flexDirection:'row',
+      alignItems:'center',
+      justifyContent:'center'
+    }}>
+            <button onClick={removeAccount} 
+              style={{
+                        width:'140px', 
+                        height:'40px', 
+                        display:'flex', 
+                        justifyContent:'center', 
+                        alignItems:'center',
+                        fontSize:'15px',
+                        borderRadius:'3px',
+                    }}
+                    >Delete Account</button>
+            <button onClick={updatePassword} 
+            style={{
+                        width:'140px', 
+                        height:'40px', 
+                        display:'flex', 
+                        justifyContent:'center', 
+                        alignItems:'center',
+                        fontSize:'15px',
+                        borderRadius:'3px',
+                  }}>Update Password</button>
+            <button onClick={logOut} 
+            style={{
+                        width:'140px', 
+                        height:'40px', 
+                        display:'flex', 
+                        justifyContent:'center', 
+                        alignItems:'center',
+                        fontSize:'15px',
+                        borderRadius:'3px',
+                  }}>Logout</button>
           </div>
-      <div style={{backgroundColor:'yellow'}}>
+      <div>
         <Quotes/>
       </div>
-      <div style={{backgroundColor:'green'}}>
-        <Link to="project" state={{ userKey: userKey }}>
-          <div style={{ width: '100px', height: '100px', backgroundColor: 'violet' }}>
+      <div style={{ 
+        backgroundColor:'#2F243A', 
+        display:'flex', 
+        justifyContent:'center', 
+        alignItems:'center', 
+        width:'800px', 
+        margin:'20px', 
+        borderRadius:'20px', 
+        padding:'10px', 
+        borderStyle:'dashed', 
+        borderWidth:'3px', 
+        borderColor:'#34E4EA'}} >
+        <Line data={data} options={options} />
+      </div>
+      <div>
+        {/* <Link to="project" state={{ userKey: userKey }} onClick={scrollBottom}>
+          <div style={{ width: '100px', height: '50px', backgroundColor: 'violet' }}>
           Create a new Project
           </div>
-        </Link> 
+        </Link>  */}
+        <Project/>
       </div>
    
 
       {/* <div>Content is stored here{JSON.stringify(users)}</div> */}
-      <div style={{ backgroundColor:'blue', display:'flex', justifyContent:'center', alignItems:'center', width:'800px'}} >
-        <Line data={data} options={options} />
-      </div>
+      
 
       {/* Unused date data , will implement in the future */}
       {/* 
@@ -186,7 +257,7 @@ export default function Home() {
       ))} 
       */}
 
-      <Outlet />
+      {/* <Outlet /> */}
     </div>
   );
 }
