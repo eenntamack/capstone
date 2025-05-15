@@ -7,9 +7,5 @@ export default defineConfig({
   build: {
     chunkSizeWarningLimit: 1000,
     outDir: 'build'
-  },
-  // important for dev but also reinforces the idea of fallback
-  server: {
-    historyApiFallback: true
   }
 })
