@@ -57,7 +57,7 @@ function App() {
         borderRadius:'20px 20px 0px 0px',
         }}><Link to="/" style={{textDecoration:'none'}}>
           <div style={{fontSize:'20px', color:'#2F243A'}}>Home</div>
-        </Link><div style={{width:'50px',height:'50px'}}></div></header>
+        </Link></header>
       <main style={{ padding: '10px', backgroundColor:"#444054" ,display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center",height:'770px', overflow:'scroll'}}>
       {/* <p className='box' ref={reffered} onClick={clikFunc} style={{ padding: "30px" }}>
         Hello Capstone
