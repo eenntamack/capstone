@@ -65,7 +65,7 @@ export default function PassUpdate(){
             
             
             <button type="submit" style={{width:'120px', 
-                                height:'30px', 
+                                height:'50px', 
                                 display:'flex', 
                                 justifyContent:'center', 
                                 alignItems:'center',
@@ -79,7 +79,7 @@ export default function PassUpdate(){
                                 justifyContent:'center', 
                                 alignItems:'center',
                                 fontSize:'15px',
-                                borderRadius:'3px',}}>Workspace</Link></button>
+                                borderRadius:'3px',}}>Return</Link></button>
         </form>
         
     )
