@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
 import App from './App';
 import Hero from './components/Hero';
 import Survey from './components/Survey';
@@ -12,7 +12,7 @@ import Register from './components/Register';
 import PassUpdate from './components/dynamic_components/PassUpdate';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <HashRouter>
   <Routes>
     <Route path="/" element={<App />}>
       <Route index element={<Hero />} />          
@@ -29,5 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     </Route>
     
   </Routes>
-</BrowserRouter>
+</HashRouter>
 );
