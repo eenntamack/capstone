@@ -44,7 +44,7 @@ useEffect(() => {
   // Submitting Data
   const addData =  (e) => {
     e.preventDefault();
-     axios.post("http://localhost:3000/userData", {
+     axios.post("https://capstone-controllers.onrender.com/userData", {
         userKey: props.userKey,
         elements
       }).then((res)=>{
@@ -64,7 +64,7 @@ useEffect(() => {
   //DeletingAllData
   const deleteStack = ()=>{
     if(elements.length > 0){
-        axios.delete("http://localhost:3000/userData",{
+        axios.delete("https://capstone-controllers.onrender.com/userData",{
         data:{ userKey: localStorage.getItem("userKey")}
         }).then(res=>{
             if (res.data.success){
