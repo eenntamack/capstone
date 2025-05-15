@@ -15,7 +15,7 @@ export default function Login() {
         e.preventDefault();
 
         try {
-            const res = await axios.post("http://localhost:3000/authenticate/login", {
+            const res = await axios.post("https://capstone-controllers.onrender.com/authenticate/login", {
                 username,
                 password,
             });

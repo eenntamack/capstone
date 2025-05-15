@@ -10,7 +10,7 @@ export default function Quotes(){
     const [quote, setQuote] = useState({q:"No quotes today! What quotes inspire you?",a:""})
     const quoteRef = useRef(null);
     useEffect(()=>{
-        axios.get("http://localhost:3000/fetchQuote").then(res=>{
+        axios.get("https://capstone-controllers.onrender.com/fetchQuote").then(res=>{
             if(res.data.data){
                 console.log(res.data.data[0].q)
                 setQuote({q:`${res.data.data[0].q}`,a:`${res.data.data[0].a}`})

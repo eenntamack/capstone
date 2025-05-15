@@ -12,7 +12,7 @@ export default function PassUpdate(){
 
     try {
       // Authenticate user
-        const updateRes = await axios.put("http://localhost:3000/authenticate/update", {
+        const updateRes = await axios.put("https://capstone-controllers.onrender.com/authenticate/update", {
           prevpass: previousPass,
           pass: newPass,
           key,

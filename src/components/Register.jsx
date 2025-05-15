@@ -13,7 +13,7 @@ export default function Register({onLogged}) {
         }
 
         try {
-            const res = await axios.post("http://localhost:3000/authenticate/register", {
+            const res = await axios.post("https://capstone-controllers.onrender.com/authenticate/register", {
                 username: username.trim(),
                 password: password.trim()
             });

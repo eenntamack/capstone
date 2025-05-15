@@ -11,7 +11,7 @@ export default function Notes(props) {
 
 useEffect(() => {
   axios
-    .get(`http://localhost:3000/userData?userKey=${localStorage.getItem("userKey")}`)
+    .get(`https://capstone-controllers.onrender.com/userData?userKey=${localStorage.getItem("userKey")}`)
     .then((res) => {
       const userData = res.data.data;
 

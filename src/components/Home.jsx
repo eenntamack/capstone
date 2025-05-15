@@ -48,7 +48,7 @@ export default function Home() {
   useEffect(() => {
     
     if (userKey) {
-      axios.get(`http://localhost:3000/userData?userKey=${localStorage.getItem("userKey")}`)
+      axios.get(`https://capstone-controllers.onrender.com/userData?userKey=${localStorage.getItem("userKey")}`)
         .then(res => {
           console.log("API Response:", res.data);
           setUsers(res.data.data);
@@ -114,7 +114,7 @@ export default function Home() {
   };
 
   const removeAccount = ()=>{
-    axios.delete("http://localhost:3000/authenticate/login",{
+    axios.delete("https://capstone-controllers.onrender.com/authenticate/login",{
       data:{
         userKey:userKey
       }
