@@ -46,16 +46,40 @@ export default function PassUpdate(){
             backgroundColor:'#2F243A'}}>
             <label style={{display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                 current password
-                <input type="password" name="previousPass" onChange={(e)=>{setPreviousPass(e.target.value)}}></input>
+                <input type="password" name="previousPass" onChange={(e)=>{setPreviousPass(e.target.value)}}
+                style={{ width:'180px',
+                            height:'30px',
+                            fontSize:'20px',
+                            backgroundColor:'#2F243A',
+                            color:'white'}}></input>
             </label>
             <label style={{display:'flex',flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
                 new password
-                <input type="password" name="newPass" onChange={(e)=>{setNewPass(e.target.value)}}></input>
+                <input type="password" name="newPass" onChange={(e)=>{setNewPass(e.target.value)}}
+                style={{ width:'180px',
+                            height:'30px',
+                            fontSize:'20px',
+                            backgroundColor:'#2F243A',
+                            color:'white'}}></input>
             </label>
             
             
-            <button type="submit">Update Password</button>
-            <Link to="/home">Workspace</Link>
+            <button type="submit" style={{width:'120px', 
+                                height:'30px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',}}>Update Password</button>
+            <button type="button"><Link to="/home" style={{
+                                textDecoration:'none',
+                                width:'120px', 
+                                height:'30px', 
+                                display:'flex', 
+                                justifyContent:'center', 
+                                alignItems:'center',
+                                fontSize:'15px',
+                                borderRadius:'3px',}}>Workspace</Link></button>
         </form>
         
     )
