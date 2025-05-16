@@ -21,7 +21,7 @@ There were a few libraries that I didnt get the chance to use due to time constr
 
 ## multer
 
- - an express library that converts files that enables the download of files through
+ - an express library that converts files that enables the download of files
 
 ## p5
 
